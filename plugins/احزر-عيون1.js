@@ -9,7 +9,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     }
     let src = await (await fetch('https://raw.githubusercontent.com/Brook-88/Game/main/game-eyes.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
-    let caption = `╮─┈〈 *تخمين الشخصية👤*〉┈─⟐
+    let caption = `
 ${command.toUpperCase()}
 *▢❯* الوقت : *${(timeout / 1000).toFixed(2)}* ثانيه
 *▢❯* اكتب : *"استسلم"* للانسحاب
