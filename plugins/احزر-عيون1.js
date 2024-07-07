@@ -9,12 +9,12 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     }
     let src = await (await fetch('https://raw.githubusercontent.com/Brook-88/Game/main/game-eyes.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
-    let caption = `
-  *⌬ ❛╏الـوقـت⏳↞ ${(timeout / 1000).toFixed(2)} ┇*
-  *▢ استخدم انسحب للأنسحاب*
-  *⌬ ❛╏الـجـائـزة💰↞ ${poin} نقاط┇*
-      *⌬ ❛╏ 𝑧ₑ𝑧ₒ_𝑏ₒ𝑡 ╏*
-     `.trim()
+    let caption = `╮─┈〈 *تخمين الشخصية👤*〉┈─⟐
+*▢❯* الوقت : *${(timeout / 1000).toFixed(2)}* ثانيه
+*▢❯* استخدم انسحب للأنسحاب
+*▢❯* الجائزة : *${poin}* EXP
+*▢❯* الرد على هذه الرسالة مع الاجابة!
+╯┈──┈┈─┈┈┈┈──┈┈─┈⟐`.trim()
     conn.tebakbendera[id] = [
         await conn.sendFile(m.chat, json.img, '', caption, m),
         json, poin,
