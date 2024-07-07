@@ -6,13 +6,13 @@ export async function before(m) {
         return !0
     this.tebakbendera = this.tebakbendera ? this.tebakbendera : {}
     if (!(id in this.tebakbendera))
-        return this.reply(m.chat, '*❐┃السؤال انتهى شوفلك غيره┃🍋‍🟩❯*', m)
+        return this.reply(m.chat, '*لقد انتهي هذا السؤال اكتب علم لتظهر أسأله جديده*', m)
     if (m.quoted.id == this.tebakbendera[id][0].id) {
         let isSurrender = /^(انسحب|surr?ender)$/i.test(m.text)
         if (isSurrender) {
             clearTimeout(this.tebakbendera[id][3])
             delete this.tebakbendera[id]
-            return this.reply(m.chat, `*❐┃طلع فاشل واستسلم┃🤭❯*\n❐┇الاجـابـة↞ ${json.name}┇`, m)
+            return this.reply(m.chat, '*طلع فاشل و استسلم :( !*', m)
         }
         let json = JSON.parse(JSON.stringify(this.tebakbendera[id][1]))
 
@@ -22,9 +22,9 @@ export async function before(m) {
             clearTimeout(this.tebakbendera[id][3])
             delete this.tebakbendera[id]
         } else if (similarity(m.text.toLowerCase(), json.name.toLowerCase().trim()) >= threshold)
-            m.reply(`*❐┃قـريـب جـدااا┃🫣❯*`)
+            m.reply(`*لقد كنت علي وشك النجاح*!`)
         else
-            this.reply(m.chat, `*❐┃اجـابـة خـاطـئـة┃❌❯*`, m)
+            this.reply(m.chat, `*❐┃اجـابـة خـاطـئـة┃❌ ❯*`, m)
     }
     return !0
 }
