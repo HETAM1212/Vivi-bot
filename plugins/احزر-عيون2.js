@@ -2,13 +2,13 @@ import similarity from 'similarity'
 const threshold = 0.72
 export async function before(m) {
     let id = m.chat
-    if (!m.quoted || !m.quoted.isBaileys || !m.text || !/مدري|استسلم/i.test(m.quoted.text) || /.hhint/i.test(m.text))
+    if (!m.quoted || !m.quoted.fromMe || !m.text || !/استخدم.*استسلم/i.test(m.quoted.text) || /.*hhint/i.test(m.text))
         return !0
     this.tebakbendera = this.tebakbendera ? this.tebakbendera : {}
     if (!(id in this.tebakbendera))
         return this.reply(m.chat, '*❐┃السؤال انتهى شوفلك غيره┃🍋‍🟩❯*', m)
     if (m.quoted.id == this.tebakbendera[id][0].id) {
-        let isSurrender = /^(استسلم|مدري)$/i.test(m.text)
+        let isSurrender = /^(استسلم|surr?ender)$/i.test(m.text)
         if (isSurrender) {
             clearTimeout(this.tebakbendera[id][3])
             delete this.tebakbendera[id]
@@ -18,7 +18,7 @@ export async function before(m) {
 
         if (m.text.toLowerCase() == json.name.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebakbendera[id][2]
-            this.reply(m.chat, `*❐┃اجـابـة صـحـيـحـة┃✅ ❯*\n\n*❐┇الـجـائـزة💰↞${this.tebakbendera[id][2]} EXP*`, m)
+            this.reply(m.chat, `*❐┃اجـابـة صـحـيـحـة┃✅ ❯*\n\n*❐↞┇الـجـائـزة💰↞${this.tebakbendera[id][2]} نقطه*`, m)
             clearTimeout(this.tebakbendera[id][3])
             delete this.tebakbendera[id]
         } else if (similarity(m.text.toLowerCase(), json.name.toLowerCase().trim()) >= threshold)
