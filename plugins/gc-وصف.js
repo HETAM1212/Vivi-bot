@@ -11,7 +11,7 @@ const handler = async (m, {conn, args}) => {
 };
 handler.help = ['Setdesc <text>'];
 handler.tags = ['group'];
-handler.command = /^setdesk|setdesc$/i;
+handler.command = /^وصف|تعديل-وصف$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
