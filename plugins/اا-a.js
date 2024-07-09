@@ -7,7 +7,7 @@ const handler = async (m, {conn}) => {
   conn.sendMessage(m.chat, {audio: {url: vn}, ptt: true, mimetype: 'audio/mpeg', fileName: `a.mp3`}, {quoted: m});
 };
 handler.customPrefix = /ª|a|A/
-handler.command = /^(a|ª|A?$)/
+handler.command = /^(a|اا|ااا|ا|A?$)/
 export default handler;
 
 /*
