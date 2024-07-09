@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 var handler = async (m, { text, usedPrefix, command }) => {
-  if (!text) throw "> *Hola, soy un servicio `Black Box Ai` un servicio capaz de programar códigos en todos los lenguajes y resolver problemas de programación, por ejemplo :*\n\n- #iabox Cómo hacer una página de inicio de sesión con `html`";
+  if (!text) throw "> *مرحبا انا خدمة بلاك ai، خدمة قادرة على برمجة الأكواد بجميع اللغات وحل مشاكل البرمجة، على سبيل المثال :*\n\n* *#بلاك كيفية إنشاء صفحة تسجيل دخول باستخدام `html`*";
 
   try {
  
@@ -13,16 +13,16 @@ var handler = async (m, { text, usedPrefix, command }) => {
     } else if (res.result) {
       await conn.sendFile(m.chat, 'https://telegra.ph/file/34bd1de01d59fb18833cc.jpg', res.result, m);
     } else {
-      throw '> *Error ⚠️*';
+      throw '> *Error 🍋‍🟩*';
     }
 
   } catch (error) {
     console.error(error);
-    throw '> *Mewing time 🤫🧏🏻‍♂️ (API ERROR)*';
+    throw '> *حدثت مشكلة 🍋‍🟩 (API ERROR)*';
   }
 };
 
-handler.command = ['bb', 'blackbox', 'iabox'];
+handler.command = ['bb', 'بلاك', 'iabox'];
 handler.help = ['blackbox'];
 handler.tags = ['herramientas'];
 export default handler;
