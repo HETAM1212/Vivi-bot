@@ -8,7 +8,19 @@ const handler = async (m, {args, usedPrefix, command}) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.herramientas__translate
 
-  const msg = `${tradutor.texto1[0]} ${usedPrefix + command} ${tradutor.texto1[1]}\n*${usedPrefix + command} ${tradutor.texto1[2]}\n*- https://cloud.google.com/translate/docs/languages*`;
+  const msg = `*❐┃صيغة غير صالحة┃❗❯*
+ *▢ مثال لاستخدام الامر :*
+ ◄ ${usedPrefix + command} ar hi
+ 
+ *▢ اللغات المتوفرة :*
+◄ عربية - ar
+◄ أسبانيا - es
+◄ الفرنسية - fr
+◄ الانجليزية - en
+◄ الروسية -  ru
+◄ او اي اختصار للغة
+┇❍❯ *اكتب : .اللغات* 
+لرؤية باقي الاختصارات`;
   if (!args || !args[0]) return m.reply(msg);
   let lang = args[0];
   let text = args.slice(1).join(' ');
@@ -32,5 +44,5 @@ const handler = async (m, {args, usedPrefix, command}) => {
     }
   }
 };
-handler.command = /^(translate|traducir|trad)$/i;
+handler.command = /^(ترجمه|ترجمة|ترجم)$/i;
 export default handler;
