@@ -12,25 +12,25 @@ const handler = async (m, {
   const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.herramientas_dropmail
   
-  conn.dropmail = conn.dropmail ? conn.dropmail : {};
-  const id = 'dropmail';
+  conn.ايميل = conn.ايميل ? conn.ايميل : {};
+  const id = 'ايميل';
 
   const lister = [
-    'create',
-    'message',
-    'delete',
+    'انشاء',
+    'رسالة',
+    'حذف',
   ];
 
   const [feature, inputs, inputs_, inputs__, inputs___] = text.split(' ');
   if (!lister.includes(feature)) return m.reply(tradutor.texto1[0] + usedPrefix + command + tradutor.texto1[1] + lister.map((v, index) => '  ○ ' + v).join('\n'));
 
   if (lister.includes(feature)) {
-    if (feature == 'create') {
+    if (feature == 'انشاء') {
       try {
 
         const eml = await random_mail();
         const timeDiff = new Date(eml[2]) - new Date();
-        conn.dropmail[id] = [
+        conn.ايميل[id] = [
           await m.reply(tradutor.texto2[0] + eml[0] + '\n\n' + tradutor.texto2[1]  + eml[1] + tradutor.texto2[2]  + msToTime(timeDiff) + tradutor.texto2[3]  + usedPrefix + command + tradutor.texto2[4] ),
           eml[0],
           eml[1],
@@ -41,11 +41,11 @@ const handler = async (m, {
       }
     }
 
-    if (feature == 'message') {
-      if (!conn.dropmail[id]) return m.reply(tradutor.texto3[0] + usedPrefix + command + tradutor.texto3[1]);
+    if (feature == 'رسالة') {
+      if (!conn.ايميل[id]) return m.reply(tradutor.texto3[0] + usedPrefix + command + tradutor.texto3[1]);
 
       try {
-        const eml = await get_mails(conn.dropmail[id][2]);
+        const eml = await get_mails(conn.ايميل[id][2]);
         const teks = eml[0].map((v, index) => {
           return `*${tradutor.texto4[0]} [ ${index + 1} ]*
 ${tradutor.texto4[0]} ${v.fromAddr}
@@ -62,11 +62,11 @@ ${tradutor.texto4[0]} ${v.downloadUrl}
         await m.reply(eror);
       }
     }
-    if (feature == 'delete') {
-      if (!conn.dropmail[id]) return m.reply(tradutor.texto6);
+    if (feature == 'حذف') {
+      if (!conn.ايميل[id]) return m.reply(tradutor.texto6);
 
       try {
-        delete conn.dropmail[id];
+        delete conn.ايميل[id];
         await m.reply(tradutor.texto7);
       } catch (e) {
         await m.reply(eror);
@@ -76,7 +76,7 @@ ${tradutor.texto4[0]} ${v.downloadUrl}
 };
 handler.help = ['dropmail'];
 handler.tags = ['misc'];
-handler.command = /^(dropmail)$/i;
+handler.command = /^(ايميل)$/i;
 export default handler;
 
 function msToTime(duration) {
