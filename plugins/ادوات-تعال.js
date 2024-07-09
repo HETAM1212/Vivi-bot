@@ -1,9 +1,7 @@
-
-
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.herramientas_fakereply
 
   if (!text) return m.reply(`${tradutor.texto1[0]}\n\n*${usedPrefix + command}* ${tradutor.texto1[1]} @${m.sender.split`@`[0]} a`, null, {mentions: [m.sender]});
@@ -25,7 +23,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.help = ['fake <text> @user <text2>'];
 handler.tags = ['tools'];
-handler.command = /^(fitnah|fakereply|fake)$/;
+handler.command = /^(تعال|fakereply|fake)$/;
 
 export default handler;
 
