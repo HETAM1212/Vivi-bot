@@ -5,7 +5,7 @@ import {webp2png} from '../lib/webp2mp4.js';
 const handler = async (m, {conn}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.herramientas_ocr
 
   const q = m.quoted ? m.quoted : m;
@@ -18,5 +18,5 @@ const handler = async (m, {conn}) => {
     m.reply(json?.ParsedResults?.[0]?.ParsedText);
   } else throw tradutor.texto1;
 };
-handler.command = /^ocr|totexto$/i;
+handler.command = /^استخراج|قراءة$/i;
 export default handler;
