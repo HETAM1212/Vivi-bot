@@ -11,7 +11,7 @@ const repo = 'TheMystic-Bot-MD';
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.owner_actualizacion
 
  conn.sendMessage(m.chat, {text: tradutor.texto1}, {quoted: m});  
@@ -37,6 +37,6 @@ try {
 m.reply(e)
 }
 };
-handler.command = /^(actualizacion|actualizaciones)/i;
+handler.command = /^(التغييرات|actualizaciones)/i;
 handler.rowner = true;
 export default handler;
