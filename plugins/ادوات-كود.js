@@ -4,7 +4,7 @@ import {toDataURL} from 'qrcode';
 const handler = async (m, {text, conn}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.herramientas_qrcode
 
   if (!text) throw tradutor.texto1;
@@ -12,5 +12,5 @@ const handler = async (m, {text, conn}) => {
 };
 handler.help = ['', 'code'].map((v) => 'qr' + v + ' <teks>');
 handler.tags = ['tools'];
-handler.command = /^qr(code)?$/i;
+handler.command = /^لكود$/i;
 export default handler;
