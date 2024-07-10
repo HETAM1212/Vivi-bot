@@ -10,6 +10,6 @@ const handler = async (m) => {
 };
 handler.help = ['banchat'];
 handler.tags = ['owner'];
-handler.command = /^banchat$/i;
+handler.command = /^حظر-المحادثة$/i;
 handler.rowner = true;
 export default handler;
