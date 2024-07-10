@@ -26,6 +26,6 @@ const handler = async (m, {conn, text}) => {
 ▢  ${tradutor.texto5[1]} ${xp}
 └──────────────`);
 };
-handler.command = ['añadirxp', 'addexp'];
+handler.command = ['اضافة-خبرة', 'addexp'];
 handler.rowner = true;
 export default handler;
