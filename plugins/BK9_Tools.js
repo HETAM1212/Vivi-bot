@@ -4,7 +4,7 @@ let handler = async function (m, { text }) {
 
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
   const tradutor = _translate.BK9.BK9
 
   try {
@@ -21,7 +21,7 @@ let handler = async function (m, { text }) {
     if (data.BK99) {
       return m.reply(`${tradutor.bk9LTaked_T}`);
     }
-    const shortURL = data.BK9;
+    const shortURL = result.BK9;
     return m.reply(`${shortURL}`);
   } catch (error) {
     console.error(error);
