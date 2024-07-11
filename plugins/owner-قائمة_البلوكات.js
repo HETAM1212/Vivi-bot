@@ -8,11 +8,11 @@ const handler = async (m, {conn}) => {
     const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
     const tradutor = _translate.plugins.owner_blocklist
 
-    let txt = `${tradutor.texto1} ${data.length}\n\n┌─⊷\n`;
+    let txt = `${tradutor.texto1} ${data.length}\n\n╮─⊷\n`;
     for (const i of data) {
       txt += `▢ @${i.split('@')[0]}\n`;
     }
-    txt += '└───────────';
+    txt += '╯───────────⩺';
     return conn.reply(m.chat, txt, m, {mentions: await conn.parseMention(txt)});
   }).catch((err) => {
     console.log(err);
@@ -21,6 +21,6 @@ const handler = async (m, {conn}) => {
 };
 handler.help = ['blocklist'];
 handler.tags = ['main'];
-handler.command = ['blocklist', 'listblock'];
+handler.command = ['قائمة-بلوك', 'listblock'];
 handler.rowner = true;
 export default handler;
