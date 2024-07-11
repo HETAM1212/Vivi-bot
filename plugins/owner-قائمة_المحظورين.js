@@ -11,12 +11,12 @@ const handler = async (m, {conn, isOwner}) => {
   const users = Object.entries(global.db.data.users).filter((user) => user[1].banned);
   const caption = `
 ╮${tradutor.texto1}
-▢ Total : ${users.length} ${users ? '\n' + users.map(([jid], i) => `
+▢ المجموع : ${users.length} ${users ? '\n' + users.map(([jid], i) => `
 ◄ ${isOwner ? '@' + jid.split`@`[0] : jid}`.trim()).join('\n') : '├'}
 ╯─────⩺
 
 ╮${tradutor.texto2}
-▢ Total : ${chats.length} ${chats ? '\n' + chats.map(([jid], i) => `
+▢ المجموع : ${chats.length} ${chats ? '\n' + chats.map(([jid], i) => `
 ◄ ${isOwner ? '@' + jid.split`@`[0] : jid}`.trim()).join('\n') : '├'}
 ╯─────⩺
 `.trim();
