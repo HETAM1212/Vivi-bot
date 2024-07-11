@@ -13,16 +13,16 @@ ${usedPrefix + command} @${m.sender.split('@')[0]}`;
   if (!who) conn.reply(m.chat, why, m, {mentions: [m.sender]});
   const res = [];
   switch (command) {
-    case 'بلوك': case 'بلوك':
+    case 'block': case 'block':
       if (who) {
-        await conn.updateBlockStatus(who, 'بلوك').then(() => {
+        await conn.updateBlockStatus(who, 'block').then(() => {
           res.push(who);
         });
       } else conn.reply(m.chat, why, m, {mentions: [m.sender]});
       break;
-    case 'فك-بلوك': case 'فك-بلوك':
+    case 'unblock': case 'unblock':
       if (who) {
-        await conn.updateBlockStatus(who, 'فك-بلوك').then(() => {
+        await conn.updateBlockStatus(who, 'unblock').then(() => {
           res.push(who);
         });
       } else conn.reply(m.chat, why, m, {mentions: [m.sender]});
@@ -33,6 +33,6 @@ ${usedPrefix + command} @${m.sender.split('@')[0]}`;
 *⟐ مثال :*
   ${command} ${res ? `${res.map((v) => '@' + v.split('@')[0])}` : ''}`, m, {mentions: res});
 };
-handler.command = /^(بلوك|فك-بلوك)$/i;
+handler.command = /^(unblock|block)$/i;
 handler.rowner = true;
 export default handler;
