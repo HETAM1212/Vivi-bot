@@ -13,14 +13,14 @@ ${usedPrefix + command} @${m.sender.split('@')[0]}`;
   if (!who) conn.reply(m.chat, why, m, {mentions: [m.sender]});
   const res = [];
   switch (command) {
-    case 'blok': case 'بلوك':
+    case 'بلوك': case 'بلوك':
       if (who) {
         await conn.updateBlockStatus(who, 'بلوك').then(() => {
           res.push(who);
         });
       } else conn.reply(m.chat, why, m, {mentions: [m.sender]});
       break;
-    case 'unblok': case 'فك-بلوك':
+    case 'فك-بلوك': case 'فك-بلوك':
       if (who) {
         await conn.updateBlockStatus(who, 'فك-بلوك').then(() => {
           res.push(who);
