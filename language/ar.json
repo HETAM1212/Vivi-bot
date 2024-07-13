@@ -3871,14 +3871,14 @@
     },
     "BK9": {
         "BK9": {
-            "bk9dalletext": "Por favor ingrese texto, por ejemplo\n .bk9img Una casa azul en una naturaleza pintoresca",
-            "bk9dallewait": "cargando ...",
-            "bk9dalleerr": "No se pudo crear la imagen. Por favor, inténtelo de nuevo más tarde.",
-            "bk9text": "Por favor ingrese texto, ejemplo: \n.bk9 Hola, ¿cómo estás?",
-            "bk9err": "Se produjo un error al procesar su solicitud.",
-            "bk9imgtext": "Responde a una imagen y escribe tu pregunta\n\nEjemplo: .bk9img quién es (no olvides responder a una imagen)",
-            "bk9LText_T": "Si lo quieres sin personalización,:\n.bk9short y ponle un enlace\nEjemplo:\n.bk9short https://bk9.site/\nSi lo quieres personalizado:\n.Short, ponle un enlace + el word\nEjemplo:\n.bk9short https://bk9.site/ + Suii",
-            "bk9LTaked_T": "Esta personalización ha sido realizada, pruebe con otra."
+            "bk9dalletext": "*❐┃يرجى ادخال نص┃❗ ❯*\n\n*⟐ مثال :*\n*`.تخيل بيت ازرق في طبيعة خلابة`*",
+            "bk9dallewait": "❐┃يتم التحميل ...┃⏳❯",
+            "bk9dalleerr": "❐┃فشل في إنشاء الصورة┃❗❯",
+            "bk9text": "*❐┃صيغة غير صالحة┃❗❯*\n*▢* يجب عليك طرح سؤالك للاجابة\n\n*⟐ مثال :*\n*`.فيفي كيف طريقة تحضير الشكشوكة`*",
+            "bk9err": "❐┃حدث خطأ أثناء معالجة طلبك┃❗❯",
+            "bk9imgtext": "*❐┃قم بالرد على الصورة┃❗ ❯*\n\n*⟐ مثال :* *`.بحث من هذا`*",
+            "bk9LText_T": "لو تبغاه بدون تخصيص سوي :\n. اختصار وحط رابط\nمثال :\n.اختصار https://bk9.site/\nلو تبغاه بتخصيص سوي :\n.اختصار حط رابط + كلمة\nمثال :\n.اختصار https://bk9.site/ + قروب_الملصقات",
+            "bk9LTaked_T": "هذا التخصيص مأخوذ، جرب اخر."
         }
 
         }
