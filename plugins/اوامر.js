@@ -1,16 +1,15 @@
-//Copyright ©JOANIMI/KILLUA
-//https://whatsapp.com/channel/0029Vab5oDNElagpHtJjmT0B
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys';
 
-import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     const device = await getDevice(m.key.id);
     const mentionId = m.key.participant || m.key.remoteJid;
 
-let _uptime = process.uptime() * 1000
-let uptime = clockString(_uptime)
+    let _uptime = process.uptime() * 1000;
+    let uptime = clockString(_uptime);
 
-    if (device !== 'desktop' || device !== 'web') {      
-        var joanimiimg = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/2a7bf4ee1980dc10aec4e.jpg'}}, { upload: conn.waUploadToServer })
+    if (device !== 'desktop' && device !== 'web') {
+        var joanimiimg = await prepareWAMessageMedia({ image: { url: 'https://telegra.ph/file/2a7bf4ee1980dc10aec4e.jpg' }}, { upload: conn.waUploadToServer });
+        
         const interactiveMessage = {
             body: { text: `*▢ مرحبا بك يا : @${mentionId.split('@')[0]}*
       ──━━━══⟐══━━━──
@@ -41,110 +40,86 @@ let uptime = clockString(_uptime)
                 imageMessage: joanimiimg.imageMessage,
             },
             nativeFlowMessage: {
-              buttons: [
-                {
-                  name: 'single_select',
-                  buttonParamsJson: JSON.stringify({
-                    title: 'اضـغـط هـنـا ➥',
-                    sections: [
-                      {
-                        title: '⟐═━─⏣─━═❪ 🇻 🇮 🇻 🇮   🇧 🇴 🇹 ❫═━─⏣─━═⟐',
-                        highlight_label: '☚',
-                        rows: [
+                buttons: [
+                    {
+                        name: 'single_select',
+                        buttonParamsJson: JSON.stringify({
+                            title: 'اضـغـط هـنـا ➥',
+                            sections: [
+                                {
+                                    title: '⟐═━─⏣─━═❪ 🇻 🇮 🇻 🇮   🇧 🇴 🇹 ❫═━─⏣─━═⟐',
+                                    highlight_label: '☚',
+                                    rows: [
                                         {
                                             header: '# قـسـم الـمـهـام🗂️ ⍅',
                                             title: '.مهام',
                                             description: '',
                                             id: '.مهام'
-                                          }
-                        ]
-                      },
-                      {
-                        highlight_label: '',
-                        rows: [
-                          {
-                            header: '# قـسـم الـطـلـبـات📥 ⍅',
-                            title: '.طلبات',
-                            description: '',
-                            id: '.طلبات'
-                          }
-                        ]
-                      },
-                      {
-                        highlight_label: '',
-                        rows: [
-                          {
-                            header: '# قـسـم الالـعـاب🎮 ⍅',
-                            title: '.العاب',
-                            description: '',
-                            id: '.العاب'
-                          }
-                        ]
-                      },
-                      {
-                        highlight_label: '',
-                        rows: [
-                          {
-                            header: '# قـسـم الـتـرفـيـه🏵️ ⍅',
-                            title: '.ترفيه',
-                            description: '',
-                            id: '.ترفيه'
-                          }
-                        ]
-                      },            {
-                        highlight_label: '',
-                        rows: [
-                          {
-                            header: '# قـسـم الـديـن📿 ⍅',
-                            title: '.دين',
-                            description: '',
-                            id: '.دين'
-                          }
-                        ]
-                      },
-                                    {
-                                        highlight_label: '',
-                                        rows: [
-                                            {
-                                            header: '# قـسـم الـمـجـمـوعـة⚙️ ⍅',
-                            title: '.المجموعة',
-                            description: '',
-                            id: '.المجموعة'
                                         }
-                                        ]
-                                    }
-                    ]
-                  })
-                },
-                              {
-
-                              },
-                              {
-
-                              },
-                              {
-
-                              },
-                              {
-
-
-                              },
-                              {
-
-                              },
-                              {
-
-                              },
-                              {
-
-                              },
-                              {
-
-                              }
-              ],
+                                    ]
+                                },
+                                {
+                                    highlight_label: '',
+                                    rows: [
+                                        {
+                                            header: '# قـسـم الـطـلـبـات📥 ⍅',
+                                            title: '.طلبات',
+                                            description: '',
+                                            id: '.طلبات'
+                                        }
+                                    ]
+                                },
+                                {
+                                    highlight_label: '',
+                                    rows: [
+                                        {
+                                            header: '# قـسـم الالـعـاب🎮 ⍅',
+                                            title: '.العاب',
+                                            description: '',
+                                            id: '.العاب'
+                                        }
+                                    ]
+                                },
+                                {
+                                    highlight_label: '',
+                                    rows: [
+                                        {
+                                            header: '# قـسـم الـتـرفـيـه🏵️ ⍅',
+                                            title: '.ترفيه',
+                                            description: '',
+                                            id: '.ترفيه'
+                                        }
+                                    ]
+                                },
+                                {
+                                    highlight_label: '',
+                                    rows: [
+                                        {
+                                            header: '# قـسـم الـديـن📿 ⍅',
+                                            title: '.دين',
+                                            description: '',
+                                            id: '.دين'
+                                        }
+                                    ]
+                                },
+                                {
+                                    highlight_label: '',
+                                    rows: [
+                                        {
+                                            header: '# قـسـم الـمـجـمـوعـة⚙️ ⍅',
+                                            title: '.المجموعة',
+                                            description: '',
+                                            id: '.المجموعة'
+                                        }
+                                    ]
+                                }
+                            ]
+                        })
+                    }
+                ],
                 messageParamsJson: ''
             }
-        };        
+        };
 
         let msg = generateWAMessageFromContent(m.chat, {
             viewOnceMessage: {
@@ -152,22 +127,25 @@ let uptime = clockString(_uptime)
                     interactiveMessage,
                 },
             },
-        }, { userJid: conn.user.jid, quoted: m })
+        }, { userJid: conn.user.jid, quoted: m });
+        
         msg.message.viewOnceMessage.message.interactiveMessage.contextInfo = { mentionedJid: [mentionId] };
         conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id });
 
     } else {
-        conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);      
-    }    
+        conn.sendFile(m.chat, 'JoAnimi•Error.jpg', m);
+    }
 };
+
 handler.help = ['imgboton'];
 handler.tags = ['For Test'];
-handler.command = /^(اوامر|الاوامر|الأوامر|أوامر)$/i;
+handler.command = /^(تست)$/i;
 
 function clockString(ms) {
-    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
+}
 
 export default handler;
