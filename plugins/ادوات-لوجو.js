@@ -1,13 +1,15 @@
-let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-  let too = `*[❗] اعمل لوجو ناروتو*\n\n *مـثــال* :\n*${usedPrefix + command}* zezo`
-
-  if (!text) throw too
-  let lr = (`https://shizoapi.onrender.com/api/photooxy/naruto?text=${encodeURIComponent(text)}&apikey=shizo`)
-  conn.sendFile(m.chat, lr, 'Zoro.png', `*تم بواسطه ✅*
-  *⌬ ❛╏𝑧ₑ𝑧ₒ_𝑏ₒ𝑡*`, m)
+import fetch from 'node-fetch'
+let handler = async (m, { conn, args }) => {
+   let response = args.join(' ').split('|')
+  if (!args[0]) throw '⚠️ *_الرجاء إدخال نص._*'
+  m.reply(global.wait)
+  let res = `https://ziy.herokuapp.com/api/maker/kaneki?nama=${response[0]}&apikey=xZiyy`
+  conn.sendFile(m.chat, res, 'kaneki.jpg', `*رائع... ฅ^•ﻌ•^ฅ⚘*`, m, false)
 }
-handler.help = ['Zoro']
-handler.tags = ['Zoro']
-handler.command = ['لوجو','لوجو-ناروتو']
+handler.help = ['لوغوكانيكي'].map(v => v + ' *<نص>*')
+handler.tags = ['لوغو']
+handler.command = /^(لوغو|لوجو)$/i
+
+handler.limit = true
 
 export default handler
