@@ -1,42 +1,42 @@
+const getMessageCount = async (conn, chatId, participantId) => {
+    // جلب جميع الرسائل من المحادثة
+    let messages = await conn.loadAllMessages(chatId);
+
+    // حساب عدد الرسائل المرسلة من قبل المشارك المحدد
+    let count = messages.filter(msg => msg.key.remoteJid === participantId).length;
+
+    return count;
+};
+
 let handler = async (m, { conn, participants }) => {
     const chatId = m.chat;
     const pp = await conn.profilePictureUrl(chatId, 'image').catch(_ => null) || './Menu.jpg';
 
-    const getMessageCount = async (chatId, participantId) => {
+    // جمع بيانات المشاركين وحساب عدد الرسائل لكل مشارك
+    let userMessages = {};
 
-        return await conn.getMessageCount(chatId, participantId);
-    };
+    // استخدام groupMetadata لجلب بيانات المجموعة
+    const metadata = await conn.groupMetadata(chatId);
 
-    const countMessagesPerUser = async (participants) => {
-        let userMessages = {};
-        for (let participant of participants) {
-            const user = participant.id.split('@')[0];
-            const count = await getMessageCount(chatId, participant.id);
-            userMessages[user] = count || 0;
-        }
-        return userMessages;
-    };
+    // فرضية: استخدام metadata.participants للحصول على المشاركين
+    const groupParticipants = metadata.participants;
 
-    const getTopUsers = (userMessages) => {
-        return Object.entries(userMessages)
-            .sort(([, a], [, b]) => b - a)
-            .slice(0, 5);
-    };
+    for (let participant of groupParticipants) {
+        const user = participant.id.split('@')[0];
+        const count = await getMessageCount(conn, chatId, participant.id);
+        userMessages[user] = count || 0;
+    }
 
-    const formatTopUsersText = (topUsers) => {
-        let text = `*━「* أعلى 5 متفاعلين *」━*\n\n`;
-        topUsers.forEach(([user, count], index) => {
-            text += `${index + 1}. @${user} - ${count} رسائل\n`;
-        });
-        return text;
-    };
+    // ترتيب المشاركين بناءً على عدد الرسائل
+    let topUsers = Object.entries(userMessages).sort(([, a], [, b]) => b - a).slice(0, 5);
 
-    const userMessages = await countMessagesPerUser(participants);
+    // صياغة النص النهائي
+    let text = `*━「* أعلى 5 متفاعلين *」━*\n\n`;
+    topUsers.forEach(([user, count], index) => {
+        text += `${index + 1}. @${user} - ${count} رسائل\n`;
+    });
 
-    const topUsers = getTopUsers(userMessages);
-
-    const text = formatTopUsersText(topUsers);
-
+    // إرسال الرسالة مع صورة المجموعة
     conn.sendFile(chatId, pp, 'Menu.jpg', text, m, false, { mentions: topUsers.map(([user]) => `${user}@s.whatsapp.net`) });
 };
 
