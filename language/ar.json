@@ -1479,7 +1479,7 @@
             ]
         },
         "game__cancion": {
-            "texto1": "El juego ha terminado",
+            
             "texto2": "❌Incorrecto!",
             "texto3": "ADIVINA EL TITULO DE LA CANCION"
         },
@@ -1512,7 +1512,7 @@
         },
         "game__ttt": {
             "texto1": [
-                "El juego ha terminado",
+        
                 "Inválido",
                 "Posición inválida",
                 "Posición inválida"
