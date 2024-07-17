@@ -3,7 +3,7 @@
 const handler = async (m, {command, usedPrefix, text}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.owner_addmsg
 
   const M = m.constructor;
@@ -17,6 +17,6 @@ const handler = async (m, {command, usedPrefix, text}) => {
 };
 handler.help = ['vn', 'msg', 'video', 'audio', 'img', 'sticker'].map((v) => 'add' + v + ' <text>');
 handler.tags = ['database'];
-handler.command = /^اضافة(vn|msg|video|audio|img|sticker)$/;
+handler.command = /^اضافة(vn|msg|vid|aud|img|wm)$/;
 handler.rowner = true;
 export default handler;
