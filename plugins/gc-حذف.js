@@ -7,7 +7,7 @@ const handler = async (m, {conn, usedPrefix, command}) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.gc_delete
 
-  if (!m.quoted) throw tradutor.texto1;
+  if (!m.quoted) throw '*❐┃يجب الرد على رسالة لحذفها┃❗❯*';
   try {
     const delet = m.message.extendedTextMessage.contextInfo.participant;
     const bang = m.message.extendedTextMessage.contextInfo.stanzaId;
