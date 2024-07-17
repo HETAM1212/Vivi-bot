@@ -1,6 +1,5 @@
 
 
-
 const handler = async (m, {conn, usedPrefix, text}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
@@ -15,7 +14,12 @@ const handler = async (m, {conn, usedPrefix, text}) => {
     var number = text;
   }
 
-  if (!text && !m.quoted) return conn.reply(m.chat, `${tradutor.texto1[0]}\n\n*┯┷*\n*┠≽ ${usedPrefix}daradmin @tag*\n*┠≽ ${usedPrefix}darpoder ${tradutor.texto1[1]}\n*┷┯*`, m);
+  if (!text && !m.quoted) return conn.reply(m.chat, `*❐┃استخدام غير صحيح┃❗❯*
+*▢* يجب عليك ذكر احدهم لترقيته الى مشرف
+
+*⟐ مثال :*
+*.اشراف @tag*
+*.اشراف <رد على رسالة>*`, m);
   if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, tradutor.texto2, m);
 
   try {
@@ -29,12 +33,12 @@ const handler = async (m, {conn, usedPrefix, text}) => {
   } catch (e) {
   } finally {
     conn.groupParticipantsUpdate(m.chat, [user], 'promote');
-    conn.reply(m.chat, tradutor.texto3, m);
+    conn.reply(m.chat, '*❐┃تم تنفيذ الامر بنجاح┃✅❯*', m);
   }
 };
 handler.help = ['*593xxx*', '*@usuario*', '*responder chat*'].map((v) => 'promote ' + v);
 handler.tags = ['group'];
-handler.command = /^(ترقية|daradmin|darpoder)$/i;
+handler.command = /^(ترقية|اشراف|darpoder)$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
