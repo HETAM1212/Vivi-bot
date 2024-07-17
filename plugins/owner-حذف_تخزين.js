@@ -15,6 +15,6 @@ const handler = async (m, {command, usedPrefix, text}) => {
 };
 handler.help = ['vn', 'msg', 'video', 'audio', 'img', 'sticker'].map((v) => 'del' + v + ' <text>');
 handler.tags = ['database'];
-handler.command = /^حذفmsg$/;
+handler.command = /^delmsg$/;
 handler.rowner = true;
 export default handler;
