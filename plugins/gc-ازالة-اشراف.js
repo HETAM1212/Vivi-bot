@@ -1,5 +1,4 @@
 
-
 const handler = async (m, {conn, usedPrefix, text}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
@@ -14,7 +13,12 @@ const handler = async (m, {conn, usedPrefix, text}) => {
     var number = text;
   }
 
-  if (!text && !m.quoted) return conn.reply(m.chat, `${tradutor.texto1[0]} ${usedPrefix}quitaradmin @tag*\n*┠≽ ${usedPrefix}quitaradmin ${tradutor.texto1[1]}`, m);
+  if (!text && !m.quoted) return conn.reply(m.chat, `*❐┃استخدام غير صحيح┃❗❯*
+*▢* يجب عليك ذكر احدهم لازالة الاشراف
+
+*⟐ مثال :*
+*.ازالة-اشراف @tag*
+*.ازالة-اشراف <رد على رسالة>*`, m);
   if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, tradutor.texto2, m);
 
   try {
@@ -28,12 +32,12 @@ const handler = async (m, {conn, usedPrefix, text}) => {
   } catch (e) {
   } finally {
     conn.groupParticipantsUpdate(m.chat, [user], 'demote');
-    conn.reply(m.chat, tradutor.texto3, m);
+    conn.reply(m.chat, `*❐┃تم تنفيذ الطلب┃✅❯*`, m);
   }
 };
 handler.help = ['*593xxx*', '*@usuario*', '*responder chat*'].map((v) => 'demote ' + v);
 handler.tags = ['group'];
-handler.command = /^ازالة(اشراف)$/i;
+handler.command = /^ازالة-اشراف$/i;
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
