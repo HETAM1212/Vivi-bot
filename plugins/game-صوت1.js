@@ -5,10 +5,7 @@ const timeout = 60000;
 const poin = 1000;
 const handler = async (m, {conn, usedPrefix}) => {
   const datas = global
-  const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
-  const tradutor = _translate.plugins.game_cancion
-
+  
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
   const id = m.chat;
   if (id in conn.tebaklagu) {
