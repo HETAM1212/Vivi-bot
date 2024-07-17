@@ -13,7 +13,7 @@ const handler = async (m, {command, usedPrefix, text}) => {
 
 *⟐ مثال :*
 .تخزين <كلمة مرور>`;
-  if (!text) throw `🛌`;
+  if (!text) throw `${tradutor.texto2[0]} *${usedPrefix}list${which}* ${tradutor.texto2[1]}`;
   const msgs = global.db.data.msgs;
   if (text in msgs) throw `*❐┃كلمة المرور هذه مستخدما شوف غيرها┃☕❯*`;
   msgs[text] = M.toObject(await m.getQuotedObj());
