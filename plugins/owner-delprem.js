@@ -3,7 +3,7 @@
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.owner_delprem
 
   let who;
@@ -24,7 +24,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.help = ['delprem <@user>'];
 handler.tags = ['owner'];
-handler.command = /^(remove|-|del)prem$/i;
+handler.command = /^حذف-بريم$/i;
 handler.group = true;
 handler.rowner = true;
 export default handler;
