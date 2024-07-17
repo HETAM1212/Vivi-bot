@@ -3,7 +3,7 @@
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.owner_addprem
 
   let who;
@@ -67,7 +67,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.help = ['addprem [@user] <days>'];
 handler.tags = ['owner'];
-handler.command = ['addprem', 'userpremium', 'addprem2', 'userpremium2', 'addprem3', 'userpremium3', 'addprem4', 'userpremium4'];
+handler.command = ['اضافة-بريم', 'userpremium', 'addprem2', 'userpremium2', 'addprem3', 'userpremium3', 'addprem4', 'userpremium4'];
 handler.group = true;
 handler.rowner = true;
 export default handler;
