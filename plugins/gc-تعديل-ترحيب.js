@@ -9,7 +9,16 @@ const handler = async (m, {conn, text, isROwner, isOwner}) => {
   if (text) {
     global.db.data.chats[m.chat].sWelcome = text;
     m.reply(tradutor.texto1);
-  } else throw `${tradutor.texto2[0]}\n*- @user (mención)*\n*- @group (nombre de grupo)*\n*- @desc (description de grupo)*`;
+  } else throw `*❐┃استخدام غير صحيح┃❗❯*
+*▢* لتعديل الترحيب يجب عليك كتابة ما يلي:
+
+*⟐ مثال :*
+*.تعديل-ترحيب < @user > للمنشن*
+*.تعديل-ترحيب < @group > اسم الجروب*
+*.تعديل-ترحيب < @desc > وصف الجروب*
+
+* *اسـتـخـدام الامـر :*
+.تعديل-ترحيب مرحبا بك @user`;
 };
 handler.help = ['setwelcome <text>'];
 handler.tags = ['group'];
