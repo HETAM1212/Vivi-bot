@@ -1,5 +1,4 @@
 
-
 const handler = async (m, {conn, args}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
@@ -7,7 +6,7 @@ const handler = async (m, {conn, args}) => {
   const tradutor = _translate.plugins.gc_setdesc
 
   await conn.groupUpdateDescription(m.chat, `${args.join(' ')}`);
-  m.reply(tradutor.texto1);
+  m.reply('*❐┃تم تعديل وصف المجموعة بنجاح┃✅❯*');
 };
 handler.help = ['Setdesc <text>'];
 handler.tags = ['group'];
