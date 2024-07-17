@@ -18,7 +18,7 @@ const handler = async (m, {conn, usedPrefix: _p, __dirname, args}) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.owner_cleartmp
 
-  conn.reply(m.chat, tradutor.texto1, m);
+  conn.reply(m.chat, '*❐┃تم حذف ملفات المجلد المؤقت بنجاح┃✔❯*', m);
 
   const tmp = [tmpdir(), join(__dirname, '../tmp')];
   const filename = [];
@@ -30,6 +30,6 @@ const handler = async (m, {conn, usedPrefix: _p, __dirname, args}) => {
 };
 handler.help = ['cleartmp'];
 handler.tags = ['owner'];
-handler.command = /^(cleartmp|cleartemp)$/i;
+handler.command = /^(تنظيف-tmp|cleartemp)$/i;
 handler.rowner = true;
 export default handler;
