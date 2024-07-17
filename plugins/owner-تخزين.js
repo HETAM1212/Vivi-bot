@@ -21,7 +21,7 @@ const handler = async (m, {command, usedPrefix, text}) => {
 *▢* لاستدعاء الرسالة المخزنة قم بكتابة vermsg مع كلمة المرور
 
 *⟐ مثال :*
-.vermsg <كلمة مرور>`);
+‏.vermsg <كلمة مرور>`);
 };
 handler.help = ['vn', 'msg', 'video', 'audio', 'img', 'sticker'].map((v) => 'add' + v + ' <text>');
 handler.tags = ['database'];
