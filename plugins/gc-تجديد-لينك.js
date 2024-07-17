@@ -8,7 +8,8 @@ const handler = async (m, {conn}) => {
   const tradutor = _translate.plugins.gc_revoke
 
   const revoke = await conn.groupRevokeInvite(m.chat);
-  await conn.reply(m.chat, `${tradutor.texto1} ${'https://chat.whatsapp.com/' + revoke}`, m);
+  await conn.reply(m.chat, `*❐┃تـم تـجـديـد الـرابـط┃✅❯*
+* *الرابط الجديد :* ${'https://chat.whatsapp.com/' + revoke}`, m);
 };
 handler.command = ['تجديد-لينك', 'revoke'];
 handler.botAdmin = true;
