@@ -17,7 +17,7 @@ cmd({
                 return await citel.reply(text);
             }
 
-            let fancytextt = await fancytext(`${text.slice(2)}`, text.split(" ")[0])
+            let fancytextt = await fancytext(`تت`, text.split(" ")[0])
             citel.reply(fancytextt)
 
         }
