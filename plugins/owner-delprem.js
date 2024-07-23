@@ -1,9 +1,8 @@
 
-
 const handler = async (m, {conn, text, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
   const tradutor = _translate.plugins.owner_delprem
 
   let who;
@@ -11,7 +10,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   else who = m.chat;
   const user = global.db.data.users[who];
   if (!who) throw tradutor.texto1;
-  if (!user) throw tradutor.texto2;
+  if (!user) throw tradutor.texto2 ;
   if (user.premiumTime = 0) throw tradutor.texto3;
   const txt = text.replace('@' + who.split`@`[0], '').trim();
 
@@ -19,7 +18,9 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 
   user.premium = false;
 
-  const textdelprem = `*[❗] @${who.split`@`[0]} ${tradutor.texto4}`;
+  const textdelprem = `*❐┃تم حذف مميزات البريم┃✅❯*
+  
+▢ @${who.split`@`[0]} لقد تمت إزالة مميزات البريم منك`;
   m.reply(textdelprem, null, {mentions: conn.parseMention(textdelprem)});
 };
 handler.help = ['delprem <@user>'];
