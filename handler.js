@@ -1457,7 +1457,7 @@ ${tradutor.texto1[1]} ${messageNumber}/3
         }
         m.isCommand = true;
         const xp = 'exp' in plugin ? parseInt(plugin.exp) : 20; // XP Earning per command
-        if (xp = 200) {
+        if (xp < 200) {
           m.reply('Ngecit -_-');
         } 
         // Hehehe
