@@ -1456,8 +1456,8 @@ ${tradutor.texto1[1]} ${messageNumber}/3
           continue;
         }
         m.isCommand = true;
-        const xp = 'exp' in plugin ? parseInt(plugin.exp) : 17; // XP Earning per command
-        if (xp > 200) {
+        const xp = 'exp' in plugin ? parseInt(plugin.exp) : 20; // XP Earning per command
+        if (xp = 20) {
           m.reply('Ngecit -_-');
         } // Hehehe
         else {
