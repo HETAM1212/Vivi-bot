@@ -1628,10 +1628,53 @@ export async function participantsUpdate({ id, participants, action }) {
   switch (action) {
     case 'add':
     case 'remove':
+      //كود الترحيب مقدم من قناه Zoro Codes
+      if (chat.welcome) {
+                    let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
+                    for (let user of participants) {
+                      let pp, ppgp;
+                      try {
+                        pp = await this.profilePictureUrl(user, 'image');
+                        ppgp = await this.profilePictureUrl(id, 'image');
+                      } catch (error) {
+                        console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
+                        pp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg'; // Assign default image URL
+                        ppgp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg'; // Assign default image URL
+                      } finally {
+                        let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
+                          .replace('@group', await this.getName(id))
+                          .replace('@desc', groupMetadata.desc?.toString() || 'لايوجد وصف')
+                          .replace('@user', '@' + user.split('@')[0]);
+
+                        let nthMember = groupMetadata.participants.length;
+                        let secondText = `انورت واشرقت بوجودك معنا, ${await this.getName(user)}, رقم ${nthMember}العضو`;
+
+                        let welcomeApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
+                          'https://telegra.ph/file/4bbf7f6f1e1a53829404c.jpg'
+                        )}&text1=${encodeURIComponent(
+                          await this.getName(user)
+                        )}&text2=مَا+يَلْفِظُ+مِنْ+قَوْلٍ+إِلَّا+لَدَيْهِ+رَقِيبٌ+عَتِيدٌ&text3=عدد+الاعضاء:${encodeURIComponent(
+                          nthMember.toString()
+                        )}&avatar=${encodeURIComponent(pp)}`;
+
+                        try {
+                          let welcomeResponse = await fetch(welcomeApiUrl);
+                          let welcomeBuffer = await welcomeResponse.buffer();
+
+                          this.sendFile(id, welcomeBuffer, 'welcome.png', text, null, false, { mentions: [user] });
+                        } catch (error) {
+                          console.error(`حدث خطأ أثناء إنشاء صورة الترحيب: ${error}`);
+                        }
+                      }
+                    }
+                  }
+                  break;
+
+                case 'remove':
       if (chat.welcome && !chat?.isBanned) {
         const groupMetadata = await m.conn.groupMetadata(id) || (conn.chats[id] || {}).metadata;
         for (const user of participants) {
-          let pp = 'https://telegra.ph/file/1ad1e512da5dd388536fc.jpg';
+          let pp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg';
           try {
             pp = await m.conn.profilePictureUrl(user, 'image');
           } catch (e) {
@@ -1655,13 +1698,13 @@ export async function participantsUpdate({ id, participants, action }) {
         }
       }
       break;
-    case 'promote':
-    case 'daradmin':
-    case 'darpoder':
+      case 'promote':
+      case 'daradmin':
+      case 'darpoder':
       text = (chat.sPromote || tradutor.texto3 || conn.spromote || '@user ```is now Admin```');
-    case 'demote':
-    case 'quitarpoder':
-    case 'quitaradmin':
+      case 'demote':
+      case 'quitarpoder':
+      case 'quitaradmin':
       if (!text) {
         text = (chat.sDemote || tradutor.texto4 || conn.sdemote || '@user ```is no longer Admin```');
       }
