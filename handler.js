@@ -1708,6 +1708,21 @@ if (chat.welcome) {
               }
             }
             break;
+            case 'promote':
+      case 'daradmin':
+      case 'darpoder':
+      text = (chat.sPromote || tradutor.texto3 || conn.spromote || '@user ```is now Admin```');
+      case 'demote':
+      case 'quitarpoder':
+      case 'quitaradmin':
+      if (!text) {
+        text = (chat.sDemote || tradutor.texto4 || conn.sdemote || '@user ```is no longer Admin```');
+      }
+      text = text.replace('@user', '@' + participants[0].split('@')[0]);
+      if (chat.detect && !chat?.isBanned) {
+        mconn.conn.sendMessage(id, { text, mentions: mconn.conn.parseMention(text) });
+      }
+      break;
   }
 }
 /**
