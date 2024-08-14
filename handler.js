@@ -1627,7 +1627,6 @@ export async function participantsUpdate({ id, participants, action }) {
   let text = '';
   switch (action) {
     case 'add':
-    case 'remove':
 //كود الترحيب مقدم من قناه Zoro Codes
 if (chat.welcome) {
               let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
