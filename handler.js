@@ -1641,7 +1641,7 @@ export async function participantsUpdate({ id, participants, action }) {
                         pp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg'; // Assign default image URL
                         ppgp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg'; // Assign default image URL
                       } finally {
-                        let text = (chat.sWelcome || this.welcome || conn.bye || 'Welcome, @user')
+                        let text = (chat.sBye || this.bye || conn.bye || 'Bye, @user')
                           .replace('@group', await this.getName(id))
                           .replace('@desc', groupMetadata.desc?.toString() || 'لايوجد وصف')
                           .replace('@user', '@' + user.split('@')[0]);
