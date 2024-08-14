@@ -1641,7 +1641,7 @@ export async function participantsUpdate({ id, participants, action }) {
                         pp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg'; // Assign default image URL
                         ppgp = 'https://telegra.ph/file/8f509fef5d9f751ec2dd7.jpg'; // Assign default image URL
                       } finally {
-                        let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
+                        let text = (chat.sWelcome || this.welcome || conn.bye || 'Welcome, @user')
                           .replace('@group', await this.getName(id))
                           .replace('@desc', groupMetadata.desc?.toString() || 'لايوجد وصف')
                           .replace('@user', '@' + user.split('@')[0]);
@@ -1684,7 +1684,7 @@ export async function participantsUpdate({ id, participants, action }) {
             const userPrefix = antiArab.some((prefix) => user.startsWith(prefix));
             const botTt2 = groupMetadata.participants.find((u) => m.conn.decodeJid(u.id) == m.conn.user.jid) || {};
             const isBotAdminNn = botTt2?.admin === 'admin' || false;
-            text = (action === 'add' ? (chat.sBye || this.bye || conn.bye || 'Welcome, @user!').replace('@subject', await m.conn.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*') :
+            text = (action === 'add' ? (chat.sBye || this.bye || conn.bye || 'Bye, @user!').replace('@subject', await m.conn.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*') :
               (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]);
             if (userPrefix && chat.antiArab && botTt.restrict && isBotAdminNn && action === 'add') {
               const responseb = await m.conn.groupParticipantsUpdate(id, [user], 'remove');
