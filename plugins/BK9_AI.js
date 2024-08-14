@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    throw `> *مرحبا انا ذكاء اصطناعي يجيب على أسئلة شخصية بسيطة*`;
+    throw `> *🤖┃مرحبا انا ذكاء اصطناعي يجيب على أسئلة شخصية بسيطة*`;
   }
   try {
     conn.sendPresenceUpdate('composing', m.chat);
