@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    throw `قم بكتابة سؤالك\n\nمثال . .فيفي كيف حالك`;
+    throw `قم بكتابة سؤالك> *مرحبا انا فيفي ذكاء اصطناعي يجيب على أسئلة شخصية بسيطة*`;
   }
   try {
     conn.sendPresenceUpdate('composing', m.chat);
@@ -12,10 +12,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       const respuestaAPI = BK8.BK9;
       conn.reply(m.chat, respuestaAPI, m);
     } else {
-      throw "حدث خطأ أثناء معالجة طلبك.";
+      throw "> *Error 🍋‍🟩*";
     }
   } catch (error) {
-    throw "حدث خطأ أثناء معالجة طلبك.";
+    throw "> *حدثت مشكلة 🍋‍🟩 (API ERROR)*";
   }
 };
 
