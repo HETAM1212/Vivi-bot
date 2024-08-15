@@ -139,7 +139,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 
 handler.help = ['imgboton'];
 handler.tags = ['For Test'];
-handler.command = /^(تست)$/i;
+handler.command = /^(الاوامر|اوامر)$/i;
 
 function clockString(ms) {
     let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
