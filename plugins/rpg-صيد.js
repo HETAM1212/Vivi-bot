@@ -56,7 +56,7 @@ const handler = async (m, {conn}) => {
   const ar11 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`;
   const ar12 = `${['🪚', '⛏️', '🧨', '💣', '🔫', '🔪', '🗡️', '🏹', '🦾', '🥊', '🧹', '🔨', '🛻'].getRandom()}`;
   const hsl = `
-*✧ Resultados de la caza ${conn.getName(m.sender)} ✧*
+*✧ اليك نتائج الصيد ${conn.getName(m.sender)} ✧*
 
  *🐂 ${ar1} ${anti1}*			 *🐃 ${ar7} ${anti7}*
  *🐅 ${ar2} ${anti2}*			 *🐮 ${ar8} ${anti8}*
@@ -78,7 +78,7 @@ const handler = async (m, {conn}) => {
   global.db.data.users[m.sender].ayam += rbrb12;
 
   const time = global.db.data.users[m.sender].lastberburu + 2700000; // 45 Minutos
-  if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) return conn.reply(m.chat, `${tradutor.texto1} ${clockString(time - new Date())}\n${wm}`, m);
+  if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) return conn.reply(m.chat, `*🤖┃استنى خذ نفس قبل ما تروح تصيد مرة ثانية┃🤌❯* \n${clockString(time - new Date())}`, m);
   // conn.sendButton(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, `⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`, null, [['🏞️ 𝙰𝙽𝙸𝙼𝙰𝙻𝙴𝚂 𝙲𝙰𝙿𝚃𝚄𝚁𝙰𝙳𝙾𝚂 ', '.kandang'],[`🎒 𝙸𝙽𝚅𝙴𝙽𝚃𝙰𝙴𝚁𝙸𝙾`, `.inventario`]], m)
 
   setTimeout(() => {
@@ -109,7 +109,7 @@ const handler = async (m, {conn}) => {
 };
 handler.help = ['berburu'];
 handler.tags = ['rpg'];
-handler.command = /^(hunt|berburu|caza(r)?)$/i;
+handler.command = /^(صيد|اصتياد|caza(r)?)$/i;
 handler.group = true;
 export default handler;
 
