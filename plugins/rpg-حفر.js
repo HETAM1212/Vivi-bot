@@ -8,7 +8,7 @@ const handler = async (m, {conn, isPrems}) => {
 
   const hasil = Math.floor(Math.random() * 10000);
   const time = global.db.data.users[m.sender].lastmiming + 600000;
-  if (new Date - global.db.data.users[m.sender].lastmiming < 600000) throw `${tradutor.texto1[0]} ${msToTime(time - new Date())} ${tradutor.texto1[1]}`;
+  if (new Date - global.db.data.users[m.sender].lastmiming < 600000) throw `*❐┃غمض عين فتح عين يخلص الوقت  ┃⏱️❯*\n*✦ الوقت المتبقي :* ${msToTime(time - new Date())}`;
   m.reply(`*❐┃مبروك ، خلصت تنقيب┃🎉❯*\n*✦ جائزتك :* ${hasil} XP`);
   global.db.data.users[m.sender].lastmiming = new Date * 1;
 };
