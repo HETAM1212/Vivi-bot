@@ -10,7 +10,7 @@ const handler = async (m, {conn, isOwner}) => {
   const user = global.db.data.users;
   const imagewarn = './src/warn.jpg';
   const caption = `
-  ❐┃المستخدمةن المحذرين┃⚠️❯\n 
+  ❐┃المستخدمين المحذرين┃⚠️❯\n 
 ╮┈┈┈┈⊷
 *▢ الاجـمـالـي :* ${adv.length} مستخدمين ${adv ? '\n' + adv.map(([jid, user], i) => `
 
