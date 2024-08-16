@@ -8,7 +8,7 @@ let handler = async (m, { conn, participants, usedPrefix, command }) => {
     let botNumber = conn.user.jid
 
     if (user === botNumber) {
-        return m.reply(`*❐┃وخر لا اكردك انت┃🍋‍🟩❯*`)
+        return m.reply(`*❐┃وخر لا اطردك انت┃🍋‍🟩❯*`)
     }
 
     if (user === ownerJid) {
