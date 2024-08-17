@@ -35,10 +35,10 @@ const handler = async (m, { conn, usedPrefix }) => {
     console.error('Error al leer la carpeta o los archivos de sesión:', err);
     await conn.sendMessage(m.chat, {text: tradutor.texto6}, {quoted: m});
   }
-  await conn.sendMessage(m.chat, {text: `${tradutor.texto7}\n${usedPrefix}s\n${usedPrefix}s\n${usedPrefix}s`}, {quoted: m});
+  await conn.sendMessage(m.chat, {text: `*❐┃اهلا اهلا تشوفني الحين┃❗❯*\n> *اذا البوت ما يرد عليك ارسل اوامر مزعجه لكن لا تسبم كثير.*\n*⟐ مثال :*\n${usedPrefix}s\n${usedPrefix}s\n${usedPrefix}s`}, {quoted: m});
 };
 handler.help = ['del_reg_in_session_owner'];
 handler.tags = ['owner'];
-handler.command = /^(اصلاح2|dsowner|clearallsession)$/i;
+handler.command = /^(اصلاح|تصليح|صلح)$/i;
 handler.rowner = true
 export default handler;
