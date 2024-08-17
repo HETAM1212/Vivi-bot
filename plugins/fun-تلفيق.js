@@ -4,7 +4,10 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.herramientas_fakereply
 
-  if (!text) return m.reply(`${tradutor.texto1[0]}\n\n*${usedPrefix + command}* ${tradutor.texto1[1]} @${m.sender.split`@`[0]} a`, null, {mentions: [m.sender]});
+  if (!text) return m.reply(`*❐┃استخدام غير صحيح┃❗❯*
+  
+  *⟐ مثال :*
+  *${usedPrefix + command}* *الرسالة* @${m.sender.split`@`[0]} *الرد عليه*`, null, {mentions: [m.sender]});
   const cm = copy(m);
   let who;
   if (text.includes('@0')) who = '0@s.whatsapp.net';
@@ -23,7 +26,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
 };
 handler.help = ['fake <text> @user <text2>'];
 handler.tags = ['tools'];
-handler.command = /^(تعال|fakereply|fake)$/;
+handler.command = /^(تلفيق|fakereply|fake)$/;
 
 export default handler;
 
