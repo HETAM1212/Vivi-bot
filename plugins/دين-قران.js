@@ -1,7 +1,7 @@
 //API Vids:
 const handler = async (m, { conn }) => {
   try {
-      const videoLink = "https://api.bk9.site/Islam/quranvid";
+      const videoLink = "https://bk9.fun/Islam/quranvid";
       const videoFileName = "video.mp4";
       await conn.sendMessage(m.chat, { video: { url: videoLink }, fileName: videoFileName, mimetype: 'video/mp4', caption: '*❀ قــرآن كــريــم*' }, { quoted: m });
   } catch (error) {
