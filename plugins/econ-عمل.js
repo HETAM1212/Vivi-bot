@@ -2,7 +2,7 @@
 const handler = async (m, { conn, isPrems }) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.rpg_work
 
   global.work = tradutor.texto1;
