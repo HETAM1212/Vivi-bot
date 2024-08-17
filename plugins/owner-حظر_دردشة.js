@@ -3,7 +3,7 @@
 const handler = async (m, {conn, participants, usedPrefix, command}) => {
   const datas = global
   const idioma = datas.db.data.users[m.sender].language
-  const _translate = JSON.parse(fs.readFileSync(`./language/ar.json`))
+  const _translate = JSON.parse(fs.readFileSync(`./language/es.json`))
   const tradutor = _translate.plugins.owner_banuser
 
   const BANtext = `${tradutor.texto1}\n*${usedPrefix + command} @${global.suittag}*`;
@@ -15,6 +15,6 @@ const handler = async (m, {conn, participants, usedPrefix, command}) => {
   users[who].banned = true;
   m.reply(tradutor.texto2);
 };
-handler.command = /^باند$/i;
+handler.command = /^حظر-دردشة$/i;
 handler.rowner = true;
 export default handler;
