@@ -39,8 +39,7 @@ const handler = async (m, { conn, usedPrefix, command, groupMetadata, participan
 }
 handler.help = ['robar'];
 handler.tags = ['xp'];
-handler.command = /^(crime|Crime)$/i
-handler.register = true
+handler.command = /^(سرقة|Crime)$/i
 handler.group = true
 export default handler;
 
