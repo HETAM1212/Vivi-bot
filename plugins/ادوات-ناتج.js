@@ -5,7 +5,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
   try {
     conn.sendPresenceUpdate('composing', m.chat);
-    const BK9api = `https://api.bk9.site/ai/mathssolve?q=${encodeURIComponent(text)}`;
+    const BK9api = `https://apii.bk9.site/ai/mathssolve?q=${encodeURIComponent(text)}`;
     const BK99 = await fetch(BK9api);
     const BK8 = await BK99.json();
     if (BK8.status && BK8.BK9) {
