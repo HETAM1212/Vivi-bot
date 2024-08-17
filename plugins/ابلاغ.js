@@ -13,7 +13,7 @@ let teks = `*❒═════[إبلاغ مهم]═════❒*
 *▢البلاغ :* ${text}`
 conn
 //حط رقمق مكان رقمي
-.reply('+96551048712@s.whatsapp.net', m.quoted ? teks + m.quoted.text : teks, null, { contextInfo: { mentionedJid: [m.sender] }})
+.reply('96551048712@s.whatsapp.net', m.quoted ? teks + m.quoted.text : teks, null, { contextInfo: { mentionedJid: [m.sender] }})
 conn.reply('@s.whatsapp.net', m.quoted ? teks + m.quoted.text : teks, null, { contextInfo: { mentionedJid: [m.sender] }})
 m.reply(`*❐┃تم إبلاغ المطور و إن شاء الله يكون ف خدمتك في أسرع وقت┃✅❯*`)
 }
