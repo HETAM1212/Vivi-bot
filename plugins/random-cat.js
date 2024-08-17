@@ -4,7 +4,7 @@ const handler = async (m, {conn, text}) => {
     const res = await fetch('https://api.thecatapi.com/v1/images/search');
     const img = await res.json();
     const caption = `
-_©The Mystic - Bot_
+_©Vivi - Bot_
 `.trim();
     conn.sendFile(m.chat, img[0].url, 'cat.jpg', caption, m);
   } catch (e) {
@@ -14,6 +14,6 @@ _©The Mystic - Bot_
 };
 handler.help = ['cat'];
 handler.tags = ['random'];
-handler.command = /^cat$/i;
+handler.command = /^قطط$/i;
 handler.fail = null;
 export default handler;
