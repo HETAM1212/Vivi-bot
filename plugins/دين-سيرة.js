@@ -12,6 +12,6 @@ const handler = async (m, { conn }) => {
 };
 
 handler.tags = ['islam'];
-handler.command = /^(حديث)$/i;
+handler.command = /^(سيرة|سيره)$/i;
 
 export default handler;
