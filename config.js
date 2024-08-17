@@ -19,12 +19,12 @@ global.owner = [
 global.suittag = ['96595505683'];
 global.prems = ['96551048712'];
 
-global.packname = 'مملكة بيرل⭐للانمي(@kdmpearl)';
-global.author = '𝐕𝐢𝐯𝐢 2.0';
-global.wm = '𝐕𝐢𝐯𝐢 2.0';
-global.titulowm = '𝐕𝐢𝐯𝐢 2.0';
-global.titulowm2 = `𝐕𝐢𝐯𝐢 2.0`
-global.igfg = '𝐕𝐢𝐯𝐢 2.0';
+global.packname = 'inst: (@k.l5e)';
+global.author = '𝐕𝐢𝐯𝐢 3.0';
+global.wm = '𝐕𝐢𝐯𝐢 3.0';
+global.titulowm = '𝐕𝐢𝐯𝐢 3.0';
+global.titulowm2 = `𝐕𝐢𝐯𝐢 3.0`
+global.igfg = '𝐕𝐢𝐯𝐢 3.0';
 global.wait = '*[ ⏳ ]... انتظر قليلا*';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
