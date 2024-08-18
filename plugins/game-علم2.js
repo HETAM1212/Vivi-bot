@@ -2,11 +2,11 @@ import similarity from 'similarity'
 const threshold = 0.72
 export async function before(m) {
     let id = m.chat
-    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.text || !/use.*fhint/i.test(m.quoted.text) || /.*hhint/i.test(m.text))
+    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.text || !/use.انسحب/i.test(m.quoted.text) || /.*hhint/i.test(m.text))
         return !0
     this.tebakbendera = this.tebakbendera ? this.tebakbendera : {}
     if (!(id in this.tebakbendera))
-        return this.reply(m.chat, 'The game was over', m)
+        return this.reply(m.chat, '*❐┃صح النوم ذا السؤال انتهى┃😪❯*', m)
     if (m.quoted.id == this.tebakbendera[id][0].id) {
         let isSurrender = /^((me)?nyerah|surr?ender|انسحب)$/i.test(m.text)
         if (isSurrender) {
