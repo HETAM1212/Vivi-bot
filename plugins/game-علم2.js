@@ -2,7 +2,7 @@ import similarity from 'similarity'
 const threshold = 0.72
 export async function before(m) {
     let id = m.chat
-    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.text || !/مدري/i.test(m.quoted.text) || /.مدري/i.test(m.text))
+    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !m.text || !/اكتب :.*مدري/i.test(m.quoted.text) || /.*hhint/i.test(m.text))
         return !0
     this.Alamvivi = this.Alamvivi ? this.Alamvivi : {}
     if (!(id in this.Alamvivi))
