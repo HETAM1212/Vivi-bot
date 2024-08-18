@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 let timeout = 5000;
-let poin = 250;
+let poin = 500;
 
 let handler = async (m, { conn, usedPrefix }) => {
     conn.tekateki = conn.tekateki ? conn.tekateki : {};
