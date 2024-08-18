@@ -1,23 +1,34 @@
-import os from 'os'
+import { exec } from 'child_process'
+import speed from 'performance-now'
 
-let handler = async (m, { conn, text }) => {
-  let totalStorage = Math.floor(os.totalmem() / 1024 / 1024) + 'MB'
-  let freeStorage = Math.floor(os.freemem() / 1024 / 1024) + 'MB'
-  let cpuModel = os.cpus()[0].model
-  let cpuSpeed = os.cpus()[0].speed / 1000
-  let cpuCount = os.cpus().length
+let handler = async (m, { conn }) => {
 
-  let message = `
-*🤖┃تست تست معاك*
+  let pingMsg = await conn.sendMessage(m.chat, {text: 'البنج...'})
 
-> • *سرعة البوت*: ${cpuSpeed}
-`
+  let timestamp = speed()
 
-  m.reply(message)
+  await exec('neofetch --stdout', async (error, stdout) => {
+
+    let latency = (speed() - timestamp).toFixed(4)
+
+    await conn.relayMessage(m.chat, {
+      protocolMessage: {
+        key: pingMsg.key,
+        type: 14,
+        editedMessage: {
+          conversation: `*🤖┃تست تست معاك*
+
+> • *سرعة البوت*: ${latency} ms` 
+        }
+      }
+    }, {})
+
+  })
+
 }
 
-handler.help = ['botspec']
-handler.tags = ['infobot']
-handler.command = /^test|تست$/i
+handler.help = ['ping']
+handler.tags = ['main']
+handler.command = ['تست', 'تصت','تشت','تيت','بنج','سرعه'] 
 
 export default handler
