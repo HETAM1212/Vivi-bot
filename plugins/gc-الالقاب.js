@@ -121,5 +121,7 @@ let handler = async function (message, { conn, text, command, isAdmin }) {
 
 handler.command = ['الالقاب', 'سجل', 'لقبي', 'لقبه', 'حذف_لقب', 'اللقب'];
 handler.tags = ['BK9'];
+handler.admin = true;
+handler.botAdmin = true;
 
 export default handler;
