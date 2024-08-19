@@ -31,7 +31,7 @@ let handler = async function (message, { conn, text, command, isAdmin }) {
             } else {
                 let replyText = '';
                 nicknames.forEach((nickname, index) => {
-                    replyText += (index + 1 ) + '-' + ' اللقب : ' +'*『' + nickname.bk9 + '』*' + '\n' + '*❮┃ _Vivi Bot MD - 3.0_ ┃❯*';
+                    replyText += (index + 1 ) + '-' + ' اللقب : ' +'*『' + nickname.bk9 + '』*';
                 });
                 message.reply('*❐┇الألقـاب المـسـجـلـة :*\n\n' + replyText);
             }
