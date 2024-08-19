@@ -31,7 +31,7 @@ let handler = async function (message, { conn, text, command, isAdmin }) {
             } else {
                 let replyText = '';
                 nicknames.forEach((nickname, index) => {
-                    replyText += (index + 1 ) + '-' + ' اللقب : ' +'*『' + nickname.bk9 + '』*';
+                    replyText += (index + 1 ) + '-' + ' اللقب : ' +'*『' + nickname.bk9 + '』*' + '\n';
                 });
                 message.reply('*❐┇الألقـاب المـسـجـلـة :*\n\n' + replyText);
             }
