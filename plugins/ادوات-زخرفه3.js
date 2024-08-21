@@ -33,5 +33,5 @@ let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
 }
 handler.help = ['vivi']
 handler.tags = ['vivi']
-handler.command = ['زخرفة3' , 'زخرفه3']
+handler.command = ['زخرفه3']
 export default handler
