@@ -8,7 +8,7 @@ const handler = async (m, {conn}) => {
 
   conn.reply(m.chat, `*❐┃صيغة غير صالحة┃❗❯*
   *▢* مثال لاستخدام الامر *:*
- *◄ .زخرفة1 abc*
+ *◄ .زخرفه1 abc*
 
   *▢* الزخرفات المتوفرة *:*
  ◄‏ 1-  𝙰𝙱𝙲
@@ -25,7 +25,7 @@ const handler = async (m, {conn}) => {
 };
 handler.help = ['reto'];
 handler.tags = ['fun'];
-handler.command = /^(زخرفة|زخرفه)/i;
+handler.command = /^(زخرفه)/i;
 export default handler;
 
 function pickRandom(list) {
